@@ -1,0 +1,54 @@
+﻿<div class="container">
+    <h2 class="h2">Reservation List</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Customer Name</th>
+                <th>Table Capacity</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="r in reservationList track by $index">
+                <td>{{r.Id}}</td>
+                <td>{{r.CustomerName}}</td>
+                <td>{{r.PeopleCount}}</td>
+                <td>{{r.Time}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <h2 class="h2">Reservation</h2>
+    <form name="reservationForm" ng-submit="bookTable(reservationForm.$valid)" novalidate>
+        <div class="form-group col-sm-3" ng-class="{ 'has-error' : reservationForm.customerName.$invalid && reservationForm.customerName.$touched }">
+            <label>*Customer Name</label>
+            <input type="text" name="customerName" class="form-control" ng-model="reservation.customerName" required>
+            <div class="help-block" ng-messages="reservationForm.customerName.$error" ng-if="reservationForm.customerName.$invalid && reservationForm.customerName.$touched">
+                <p ng-message="required">Name is required.</p>
+            </div>
+        </div>
+        <div class="form-group col-sm-3" ng-class="{ 'has-error' : reservationForm.peopleCount.$invalid && reservationForm.peopleCount.$touched }">
+            <label>*Number of people</label>
+            <input type="number" name="peopleCount" class="form-control" ng-model="reservation.peopleCount" required>
+            <div class="help-block" ng-messages="reservationForm.peopleCount.$error" ng-if="reservationForm.peopleCount.$invalid && reservationForm.peopleCount.$touched">
+                <p ng-message="required">Count is required.</p>
+            </div>
+        </div>
+        <div class="form-group col-sm-3" ng-class="{ 'has-error' : reservationForm.dateTime.$invalid && reservationForm.dateTime.$touched }">
+            <label>*Date Time</label>
+            <input type="text" id="dateTime" name="dateTime" class="form-control" ng-model="reservation.time" required set-date date="reservation.time">
+            <div class="help-block" ng-messages="reservationForm.dateTime.$error" ng-if="reservationForm.dateTime.$invalid && reservationForm.dateTime.$touched">
+                <p ng-message="required">Date and Time is required.</p>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top:25px;"><i class="fa fa-lg" ng-class="{'fa-spinner fa-spin' : showSpinner }"></i> Book Table</button>
+    </form>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        // Set DateTimePicker for date controls
+        $('#dateTime').datetimepicker({ useCurrent: false, minDate: moment("01/01/1901") });
+    });
+</script>

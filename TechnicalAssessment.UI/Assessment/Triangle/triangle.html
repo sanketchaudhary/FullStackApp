@@ -1,0 +1,32 @@
+﻿<div class="container">
+    <form name="triangleForm" ng-submit="getTriangleArea(triangleForm.$valid)" novalidate>
+        <div class="form-group col-sm-3" ng-class="{ 'has-error' : triangleForm.sideOne.$invalid && triangleForm.sideOne.$touched }">
+            <label>Traingle Side</label>
+            <input type="number" name="sideOne" class="form-control" ng-model="triangle.sideOne" required>
+            <div class="help-block" ng-messages="triangleForm.sideOne.$error" ng-if="triangleForm.sideOne.$invalid && triangleForm.sideOne.$touched">
+                <p ng-message="required">Side One is required.</p>
+            </div>
+        </div>
+        <div class="form-group col-sm-3" ng-class="{ 'has-error' : triangleForm.sideTwo.$invalid && triangleForm.sideTwo.$touched }">
+            <label>Traingle Side</label>
+            <input type="number" name="sideTwo" class="form-control" ng-model="triangle.sideTwo" required>
+            <div class="help-block" ng-messages="triangleForm.sideTwo.$error" ng-if="triangleForm.sideTwo.$invalid && triangleForm.sideTwo.$touched">
+                <p ng-message="required">Side Two is required.</p>
+            </div>
+        </div>
+        <div class="form-group col-sm-3" ng-class="{ 'has-error' : triangleForm.sideThree.$invalid && triangleForm.sideThree.$touched }">
+            <label>Traingle Side</label>
+            <input type="number" name="sideThree" class="form-control" ng-model="triangle.sideThree" required>
+            <div class="help-block" ng-messages="triangleForm.sideThree.$error" ng-if="triangleForm.sideThree.$invalid && triangleForm.sideThree.$touched">
+                <p ng-message="required">Side Three is required.</p>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top:25px;"><i class="fa fa-lg" ng-class="{'fa-spinner fa-spin' : showSpinner }"></i> Get Triangle Area</button>
+    </form>
+    <br />
+    <br />
+    <p ng-show="response.showResponse == true" style="width: 1000px;" class="alert alert-success">
+        <b>Triangle Area: </b> {{ response.result }}<br />
+    </p><br />
+    <p ng-show="error.hasError" class="alert alert-danger" style="width: 1000px;">{{ error.errorMessage }}</p>
+</div>

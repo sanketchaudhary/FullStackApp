@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html ng-app="assessmentApp">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+
+    <!-- CSS -->
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    
+    <!-- Common Scripts -->
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/angular-messages.min.js"></script>
+    <script src="Scripts/moment.min.js"></script>
+    <script src="Scripts/bootstrap-datetimepicker.min.js"></script>
+        
+    <!-- Application Scripts -->
+    <script src="Assessment/app.module.js"></script>
+    <script src="Assessment/app.route.js"></script>
+    <script src="Assessment/Services/assessment.service.js"></script>
+    <script src="Assessment/Services/reservation.service.js"></script>
+    <script src="Assessment/Reservation/setDate.directive.js"></script>
+    <script src="Assessment/IsNullOrEmpty/isNullOrEmpty.controller.js"></script>
+    <script src="Assessment/PositiveDivisor/positiveDivisor.controller.js"></script>
+    <script src="Assessment/CommonNumber/commonNumber.controller.js"></script>
+    <script src="Assessment/Triangle/triangle.controller.js"></script>
+    <script src="Assessment/Reservation/reservation.controller.js"></script>
+</head>
+<body ng-controller="nullEmptyController">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/ui-app/index.html#/"></a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><i class="fa fa-home"></i> Null/Empty</a></li>
+                <li><a href="#positiveDivisor"><i class="fa fa-calculator"></i> Positive Divisor</a></li>
+                <li><a href="#triangleCheck"><i class="fa fa-exclamation-triangle"></i> Traingle</a></li>
+                <li><a href="#commonNumber"><i class="fa fa-calculator"></i> Common Number</a></li>
+                <li><a href="#reservation"><i class="fa fa-hotel"></i> Reservation</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div>
+        <div ng-view></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+﻿<div class="container">
+    <form name="nullEmptyForm" ng-submit="checkString()" novalidate>
+        <div class="form-group col-sm-3">
+            <label>*Input String</label>
+            <input type="text" name="inputStr" class="form-control" ng-model="inputStr">
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top:25px;"><i class="fa fa-lg" ng-class="{'fa-spinner fa-spin' : showSpinner }"></i> Check String</button>
+    </form>
+    <br />
+    <br />
+    <br />
+    <p ng-show="response.showResponse == true" style="width: 1000px;" class="alert alert-success">
+        <b>Is input string Null or Empty: </b> {{ response.result }}<br />
+    </p><br />
+    <p ng-show="error.hasError" class="alert alert-danger" style="width: 1000px;">{{ error.errorMessage }}</p>
+</div>
